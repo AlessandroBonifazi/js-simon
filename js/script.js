@@ -62,7 +62,7 @@ function gameLogic() {
 function startGame(min, max) {
     cpuNumbers.innerText = '';
     cpuNumberGenerator(min, max);
-    setTimeout(simonDisplayNone, 2999);
-    setTimeout(gameLogic, 4000);
+    setTimeout(simonDisplayNone, 29500);
+    setTimeout(gameLogic, 30000);
 }
 
