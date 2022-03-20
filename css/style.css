@@ -4,6 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: blueviolet;
+}
 /* Utility */
 .d-none {
     display: none;
@@ -12,3 +15,8 @@
     display: block;
 }
 /* Content */
+.container {
+    color: white;
+    text-align: center;
+    padding: 200px 0px;
+}
