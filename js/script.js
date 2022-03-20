@@ -13,8 +13,11 @@ let userArray = [];
 let wrongArray = [];
 
 const cpuNumbers = document.getElementById('numbers');
-const userNumbers = document.getElementById('right-num');
 const wrongNumbers = document.getElementById('wrong-num');
+const score = document.getElementById('points');
+const playButton = document.getElementById('start');
+
+playButton.addEventListener('click', startGame);
 
 // Functions
 function randomNumberGenerator(min, max) {
@@ -30,4 +33,36 @@ function cpuNumberGenerator(min, max) {
     }
 }
 
-cpuNumberGenerator();
+function simonDisplayNone() {
+    cpuNumbers.style.display = 'none';
+}
+
+function simonDisplayYes() {
+    cpuNumbers.style.display = 'block';
+}
+
+function gameLogic() {
+    for (let i = 0; i < gameArray.length; i++) {
+        let userNumber = parseInt(prompt('Input the number in the position: ' + (i + 1)));
+        while (isNaN(userNumber) || userNumber > 100) {
+            userNumber = parseInt(prompt('Input the number in the position: ' + (i + 1)));
+        }
+        if (gameArray.includes(userNumber)) {
+            userArray.push(userNumber);
+            let points = userArray.length;
+            score.innerText = 'Final Score: ' + points;
+        } else {
+            wrongArray.push(userNumber);
+            wrongNumbers.innerText = 'Wrong numbers: ' + wrongArray;
+        }
+    }
+    simonDisplayYes();
+}
+
+function startGame(min, max) {
+    cpuNumbers.innerText = '';
+    cpuNumberGenerator(min, max);
+    setTimeout(simonDisplayNone, 2999);
+    setTimeout(gameLogic, 4000);
+}
+
