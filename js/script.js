@@ -8,5 +8,26 @@ console.log('JS OK!');
 // quali dei numeri da indovinare sono stati individuati.
 
 // Config
+let gameArray = [];
+let userArray = [];
+let wrongArray = [];
+
+const cpuNumbers = document.getElementById('numbers');
+const userNumbers = document.getElementById('right-num');
+const wrongNumbers = document.getElementById('wrong-num');
 
 // Functions
+function randomNumberGenerator(min, max) {
+    const range = (max - min) + 1;
+    return Math.floor(Math.random() * range) + min;
+}
+
+function cpuNumberGenerator(min, max) {
+    for (let i = 0; i < 5; i++) {
+        let simonNum = randomNumberGenerator(1, 100);
+        gameArray.push(simonNum);
+        cpuNumbers.innerText = gameArray;
+    }
+}
+
+cpuNumberGenerator();
