@@ -29,7 +29,7 @@ function cpuNumberGenerator(min, max) {
     for (let i = 0; i < 5; i++) {
         let simonNum = randomNumberGenerator(1, 100);
         gameArray.push(simonNum);
-        cpuNumbers.innerText = gameArray;
+        cpuNumbers.innerText = gameArray.join('  ');
     }
 }
 
@@ -53,7 +53,7 @@ function gameLogic() {
             score.innerText = 'Final Score: ' + points;
         } else {
             wrongArray.push(userNumber);
-            wrongNumbers.innerText = 'Wrong numbers: ' + wrongArray;
+            wrongNumbers.innerText = 'Wrong numbers: ' + wrongArray.join('  ');
         }
     }
     simonDisplayYes();
